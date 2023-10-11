@@ -6,7 +6,7 @@ import { history } from '../redux'
 import { ToastContainer } from 'react-toastify';
 import HomePage from './HomePage/HomePage.js'
 import DetailDoctor from '../components/Patient/Doctor/DetailDoctor';
-
+import Doctor from '../routes/Doctor';
 
 import { userIsAuthenticated, userIsNotAuthenticated } from '../hoc/authentication';
 
@@ -53,6 +53,7 @@ class App extends Component {
                                     <Route path={path.HOME} exact component={(Home)} />
                                     <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                                     <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
+                                    <Route path={'/doctor'} component={userIsAuthenticated(Doctor)} />
                                     <Route path={path.HOMEPAGE} component={HomePage} />
                                     <Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
                                 </Switch>
