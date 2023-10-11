@@ -5,7 +5,7 @@ import { ConnectedRouter as Router } from 'connected-react-router';
 import { history } from '../redux'
 import { ToastContainer } from 'react-toastify';
 import HomePage from './HomePage/HomePage.js'
-import DetailDoctor from '../components/Patient/Doctor/DetailDoctor';
+import DetailDoctor from './Patient/Doctor/DetailDoctor'
 import Doctor from '../routes/Doctor';
 
 import { userIsAuthenticated, userIsNotAuthenticated } from '../hoc/authentication';
