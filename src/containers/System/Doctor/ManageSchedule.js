@@ -10,6 +10,7 @@ import moment from 'moment';
 import { toast } from 'react-toastify';
 import _ from 'lodash';
 import { saveBulkScheduleDoctor } from '../../../services/userService';
+
 class ManageSchedule extends Component {
 
     constructor(props) {
@@ -133,11 +134,19 @@ class ManageSchedule extends Component {
             doctorId: selectedDoctor.value,
             formattedDate: '' + formattedDate
         })
+
+        if (res && res.errCode === 0) {
+            toast.success('Save info successfully')
+        } else {
+            toast.error('error saveBulkScheduleDoctor ')
+            console.log('error saveBulkScheduleDoctor --> res', res)
+        }
     }
 
     render() {
         let { rangeTime } = this.state
         let { language } = this.props
+        let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
         return (
             <div className='manage-schedule-container'>
                 <div className='m-s-title'>
@@ -160,7 +169,7 @@ class ManageSchedule extends Component {
                                 className='form-control'
                                 onChange={this.handleOnchangeDatePicker}
                                 value={this.state.currentDate}
-                                minDate={new Date()}
+                                minDate={yesterday}
                             />
 
                         </div>

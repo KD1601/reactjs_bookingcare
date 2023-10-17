@@ -66,7 +66,24 @@
         "save": "Save info"
     },
     "doctor-schedule": {
-        "schedule": "Examination schedule",
-        "empty_schedule": "There are no appointments available during this time, please choose another time"
+        "schedule": "Schedule",
+        "empty_schedule": "There are no appointments available during this time, please choose another time",
+        "choose": "Choose",
+        "book-free": "and book (free)"
+    },
+    "admin": {
+        "manage-doctor": {
+            "title": "Create additional doctor information",
+            "select-doctor": "Choose doctor",
+            "intro": "Introductory information",
+            "add": "Create information",
+            "save": "Save information",
+            "price": "Price",
+            "payment": "Payment",
+            "province": "Province",
+            "name-clinic": "Clinic's name",
+            "address-clinic": "clinic's address",
+            "note": "Note"
+        }
     }
 }
