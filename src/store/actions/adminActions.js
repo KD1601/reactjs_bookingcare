@@ -220,7 +220,6 @@ export const fetchTopDoctor = () => {
                 })
             }
         } catch (e) {
-            console.log('check res doctor: ')
 
             console.log('FETCH_TOP_DOCTOR_FAILED', e)
             dispatch({

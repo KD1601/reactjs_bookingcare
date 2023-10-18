@@ -79,7 +79,6 @@ class ManageSchedule extends Component {
     };
 
     handleOnchangeDatePicker = (date) => {
-        console.log('change time', date[0])
         this.setState({
             currentDate: date[0]
         })

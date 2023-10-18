@@ -11,7 +11,6 @@ import 'react-markdown-editor-lite/lib/index.css';
 import Select from 'react-select';
 import { getDetailInfoDoctor } from '../../../services/userService';
 
-
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
 // Finish!
@@ -140,7 +139,6 @@ class ManageDoctor extends Component {
             contentMarkdown: text,
             contentHTML: html,
         })
-        console.log('handleEditorChange', html, text);
     }
 
     handleSaveContentMarkdown = () => {
@@ -238,7 +236,6 @@ class ManageDoctor extends Component {
     }
 
     render() {
-        console.log('check state: ', this.state)
         let { hasOldData } = this.state
         return (
             <div className='manage-doctor-container'>
