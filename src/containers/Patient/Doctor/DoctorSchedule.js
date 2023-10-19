@@ -7,6 +7,8 @@ import localization from 'moment/locale/vi'
 import { LANGUAGES } from '../../../utils'
 import { getScheduleDoctorByDate } from '../../../services/userService'
 import { FormattedMessage } from 'react-intl';
+import BookingModal from './Modal/BookingModal';
+
 
 
 
@@ -18,6 +20,8 @@ class DoctorSchedule extends Component {
             allDays: [],
             allAvailableTime: [],
             currentDoctorId: -1,
+            isOpenModalBooking: false,
+            dataScheduleTimeModal: {}
         }
     }
 
@@ -97,50 +101,71 @@ class DoctorSchedule extends Component {
         }
     }
 
+    handleClickScheduleTime = (time) => {
+        this.setState({
+            isOpenModalBooking: true,
+            dataScheduleTimeModal: time
+        })
+    }
+
+    closeBookingModal = () => {
+        this.setState({ isOpenModalBooking: false })
+    }
+
 
     render() {
-        let { allDays, allAvailableTime } = this.state
+        let { allDays, allAvailableTime, isOpenModalBooking, dataScheduleTimeModal } = this.state
         let { language } = this.props
         return (
-            <div className='doctor-schedule-container'>
-                <div className='all-schedule'>
-                    <select onChange={(e) => this.handleOnchangeSelect(e)}>
-                        {allDays && allDays.length > 0 &&
-                            allDays.map((item, index) => {
-                                return (
-                                    <option key={index} value={item.value}>{item.label}</option>
-                                )
-                            })
-                        }
-                    </select>
-                </div>
-                <div className='all-available-item'>
-                    <div className='text-calendar'>
-                        <i className="fas fa-calendar-alt"><span><FormattedMessage id='doctor-schedule.schedule' /></span></i>
+            <>
+                <div className='doctor-schedule-container'>
+                    <div className='all-schedule'>
+                        <select onChange={(e) => this.handleOnchangeSelect(e)}>
+                            {allDays && allDays.length > 0 &&
+                                allDays.map((item, index) => {
+                                    return (
+                                        <option key={index} value={item.value}>{item.label}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
-                    <div className='time-content'>
-                        {allAvailableTime && allAvailableTime.length > 0 ?
-                            <>
-                                <div className='time-content-btns'>
-                                    {allAvailableTime.map((item, index) => {
-                                        let timeDisplay = language === LANGUAGES.VI ? item.timeTypeData.valueVi : item.timeTypeData.valueEn
-                                        return (
-                                            <button key={index} className={language === LANGUAGES.VI ? 'btn-vi' : 'btn-en'}>{timeDisplay}</button>
-                                        )
-                                    })
-                                    }
-                                </div>
+                    <div className='all-available-item'>
+                        <div className='text-calendar'>
+                            <i className="fas fa-calendar-alt"><span><FormattedMessage id='doctor-schedule.schedule' /></span></i>
+                        </div>
+                        <div className='time-content'>
+                            {allAvailableTime && allAvailableTime.length > 0 ?
+                                <>
+                                    <div className='time-content-btns'>
+                                        {allAvailableTime.map((item, index) => {
+                                            let timeDisplay = language === LANGUAGES.VI ? item.timeTypeData.valueVi : item.timeTypeData.valueEn
+                                            return (
+                                                <button key={index}
+                                                    className={language === LANGUAGES.VI ? 'btn-vi' : 'btn-en'}
+                                                    onClick={() => this.handleClickScheduleTime(item)}
+                                                >{timeDisplay}</button>
+                                            )
+                                        })
+                                        }
+                                    </div>
 
-                                <div className='book-free'>
-                                    <span><FormattedMessage id='doctor-schedule.choose' /> <i className='far fa-hand-point-up'></i> <FormattedMessage id='doctor-schedule.book-free' /></span>
-                                </div>
-                            </>
-                            :
-                            <div className='no-schedule'><FormattedMessage id='doctor-schedule.empty_schedule' /></div>
-                        }
+                                    <div className='book-free'>
+                                        <span><FormattedMessage id='doctor-schedule.choose' /> <i className='far fa-hand-point-up'></i> <FormattedMessage id='doctor-schedule.book-free' /></span>
+                                    </div>
+                                </>
+                                :
+                                <div className='no-schedule'><FormattedMessage id='doctor-schedule.empty_schedule' /></div>
+                            }
+                        </div>
                     </div>
                 </div>
-            </div>
+                <BookingModal
+                    isOpenModal={isOpenModalBooking}
+                    closeBookingModal={this.closeBookingModal}
+                    dataTime={dataScheduleTimeModal}
+                />
+            </>
         );
     }
 }
