@@ -109,5 +109,11 @@
             "select-specialty": "Chọn chuyên khoa",
             "select-clinic": "Chọn phòng khám"
         }
+    },
+    "specialty": {
+        "detail-specialty": {
+            "view-more": "Xem thêm",
+            "hidden": "Ẩn bớt"
+        }
     }
 }

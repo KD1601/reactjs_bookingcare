@@ -109,5 +109,11 @@
             "select-specialty": "Select specialty",
             "select-clinic": "Select clinic"
         }
+    },
+    "specialty": {
+        "detail-specialty": {
+            "view-more": "View more",
+            "hidden": "Hidden"
+        }
     }
 }
