@@ -60,7 +60,8 @@
                 // }
 
                 &.section-medical-facility {
-                    background-image: url("../../assets/medical_facility/medlatec.png");
+                    background-size: contain !important;
+                    background-color: white !important;
                 }
 
                 &.section-outstanding-doctor {
