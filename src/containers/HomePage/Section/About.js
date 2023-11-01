@@ -1,29 +1,45 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { FormattedMessage } from 'react-intl';
-
-
-
+import { TikTok } from 'react-tiktok';
 
 class About extends Component {
 
     render() {
 
         return (
+
             <div className='section-share section-about'>
                 <div className='section-about-header'>
-                    Truyền thông nói về KyuD
+                    Hành trình hoàn thành dự án này:
                 </div>
+                <p className='sub-title-about'>Video đầu tiên và cuối cùng đánh dấu hoàn thành dự án clone booking care của Felix dev!!!</p>
+
                 <div className='section-about-content'>
                     <div className='content-left'>
-                        <iframe width="100%" height="400px" src="https://www.youtube.com/embed/147SkAVXEqM" title="#51 Kết Thúc Design Giao Diện Clone BookingCare.vn 4 | React.JS Cho Người Mới Bắt Đầu" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                        <TikTok
+                            url="https://www.tiktok.com/@anhsinhviennam4/video/7278092483974810881"
+                            width={500} // Kích thước chiều rộng mong muốn
+                            height={300} // Kích thước chiều cao mong muốn
+                        />
                     </div>
                     <div className='content-right'>
-                        <p>Trong video này, chúng ta sẽ hoàn tất việc design giao diện theo trang bookingcare.vn. Chúng ta sẽ hoàn thiện những phần đang còn dang dở, để từ video tiếp theo, chúng ta sẽ bắt đầu làm về backend và react để tạo dữ liệu thật cho trang home design này.</p>
+                        <TikTok
+                            url="https://www.tiktok.com/@anhsinhviennam4/video/7296073930786295042"
+                            width={500} // Kích thước chiều rộng mong muốn
+                            height={300} // Kích thước chiều cao mong muốn
+                        />
+                    </div>
+                    <div className='content-right'>
+                        <TikTok
+                            url="https://www.tiktok.com/@anhsinhviennam4/video/7288368709859544322"
+                            width={500} // Kích thước chiều rộng mong muốn
+                            height={300} // Kích thước chiều cao mong muốn
+                        />
                     </div>
 
                 </div>
-            </div>
+            </div >
         )
     }
 

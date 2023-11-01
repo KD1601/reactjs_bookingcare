@@ -142,20 +142,19 @@
         font-size: 22px;
         font-weight: 600;
     }
+    .sub-title-about {
+        text-align: justify;
+        font-style: italic;
+        padding-top: 4px;
+    }
     .section-about-content {
         display: flex;
         gap: 15px;
         width: 100%;
+
         .content-left {
-            width: 60%;
         }
         .content-right {
-            width: 40%;
-            p {
-                text-align: justify;
-                font-style: italic;
-                padding-top: 15px;
-            }
         }
     }
 }
